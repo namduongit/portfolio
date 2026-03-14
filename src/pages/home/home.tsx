@@ -3,23 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import mainAvatar from "../../assets/images/main-avatar.png"
 import otherOne from "../../assets/images/other-avatar-1.png"
 import otherTwo from "../../assets/images/other-avatar-2.png"
-
-const TechSkillItem = (props: { title: string, description: string, iconUrl: string }) => {
-    return (
-        <div className="px-3 md:px-4 ld:px-5 py-2 ring-2 ring-gray-500 rounded-lg group
-                hover:ring-green-600 hover:scale-[1.05] hover:shadow-lg hover:shadow-green-500/40 hover:bg-green-10
-                overflow-hidden cursor-pointer transition-all duration-100
-                flex items-center gap-5">
-            <div>
-                <img src={props.iconUrl} alt="Icon tech skill" />
-            </div>
-            <div>
-                <h1 className="font-semibold text-md lg:text-xl group-hover:text-green-700">{props.title}</h1>
-                <p className="text-sm lg:text-md">{props.description}</p>
-            </div>
-        </div>
-    )
-}
+import GithubSection from "../../components/ui/github-section/github-section";
+import ProjectSection from "../../components/ui/project-section/project-section";
+import SkillItem from "../../components/ui/skill-item/skill-item";
+import DotLine from "../../components/ui/dot-line/dot-line";
 
 const Home = () => {
     const titleString = "Hi, I'm Nguyen Nam Duong";
@@ -80,10 +67,10 @@ const Home = () => {
     return (
         <div className="container mx-auto space-y-20 px-8 lg:px-5 xl:px-3 2xl:px-0">
             {/* Introduction */}
-            <div className="flex flex-col md:flex-row items-center">
-                <div>
-                    <iframe src="https://lottie.host/embed/98d20880-1b80-46ee-938d-bce130f2ead0/HcHZXBp6YQ.lottie" 
-                    className="w-120 h-120 md:hidden">
+            <div id="Home" className="flex flex-col md:flex-row items-center">
+                <div className="relative">
+                    <iframe src="https://lottie.host/embed/98d20880-1b80-46ee-938d-bce130f2ead0/HcHZXBp6YQ.lottie"
+                        className="w-120 h-120 md:hidden">
                     </iframe>
                 </div>
 
@@ -107,15 +94,15 @@ const Home = () => {
                     </p>
                 </div>
 
-                <div>
-                    <iframe src="https://lottie.host/embed/98d20880-1b80-46ee-938d-bce130f2ead0/HcHZXBp6YQ.lottie" 
-                    className="hidden md:block lg:w-180 lg:h-180">
+                <div className="relative">
+                    <iframe src="https://lottie.host/embed/98d20880-1b80-46ee-938d-bce130f2ead0/HcHZXBp6YQ.lottie"
+                        className="hidden md:block lg:w-180 lg:h-180">
                     </iframe>
                 </div>
             </div>
 
             {/* About me */}
-            <div className="space-y-6">
+            <div id="About" className="space-y-6">
                 <div>
                     <h1 className="text-3xl md:text-4xl font-semibold text-green-700">About me</h1>
                     <p className="text-gray-700 text-sm md:text-md">
@@ -126,7 +113,7 @@ const Home = () => {
                 <div className="grid grid-cols-12 gap-8 items-start">
                     <div className="col-span-12 lg:col-span-2 relative">
                         <button
-                            className={`cursor-pointer transition-all duration-300 rounded-xl overflow-hidden hover:scale-105 hover:shadow-xl`}
+                            className={`cursor-pointer transition-all duration-200 rounded-xl overflow-hidden hover:scale-105 hover:shadow-xl`}
                         >
                             <img
                                 src={mainAvatar}
@@ -214,7 +201,7 @@ const Home = () => {
             </div>
 
             {/* Skill */}
-            <div className="space-y-5">
+            <div id="Skill" className="space-y-5">
                 <div>
                     <h1 className="text-3xl md:text-4xl font-semibold text-green-700">My Tech Skill</h1>
                     <p className="text-gray-700 text-sm md:text-md">
@@ -222,64 +209,78 @@ const Home = () => {
                     </p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
-                    <div className="flex-1 space-y-6">
-                        <TechSkillItem
-                            title="React"
-                            description="Building modern UI with React and component-based architecture."
-                            iconUrl="https://skillicons.dev/icons?i=react"
-                        />
+                <div className="flex gap-5 lg:gap-10">
 
-                        <TechSkillItem
-                            title="Tailwind CSS"
-                            description="Creating responsive and clean interfaces with utility-first CSS."
-                            iconUrl="https://skillicons.dev/icons?i=tailwind"
-                        />
+                    <DotLine />
 
-                        <TechSkillItem
-                            title="Node.js Ecosystem"
-                            description="Backend development with Node.js, Express, and NestJS."
-                            iconUrl="https://skillicons.dev/icons?i=nodejs"
-                        />
+                    <div className="flex-1 flex flex-col lg:flex-row gap-6 lg:gap-12">
+                        <div className="flex-1 space-y-6">
+                            <SkillItem
+                                title="React"
+                                description="Building modern UI with React and component-based architecture."
+                                iconUrl="https://skillicons.dev/icons?i=react"
+                            />
 
-                        <TechSkillItem
-                            title="API Development"
-                            description="Designing and building scalable RESTful APIs."
-                            iconUrl="https://skillicons.dev/icons?i=graphql"
-                        />
-                    </div>
+                            <SkillItem
+                                title="Tailwind CSS"
+                                description="Creating responsive and clean interfaces with utility-first CSS."
+                                iconUrl="https://skillicons.dev/icons?i=tailwind"
+                            />
 
-                    <div className="flex-1 space-y-6">
-                        <TechSkillItem
-                            title="Database & Analytics"
-                            description="Working with MongoDB, PostgreSQL, MySQL, SQL Server, and Redis."
-                            iconUrl="https://skillicons.dev/icons?i=mongodb"
-                        />
+                            <SkillItem
+                                title="Node.js Ecosystem"
+                                description="Backend development with Node.js, Express, and NestJS."
+                                iconUrl="https://skillicons.dev/icons?i=nodejs"
+                            />
 
-                        <TechSkillItem
-                            title="Cloud Services"
-                            description="Using Firebase services such as Firestore and cloud storage."
-                            iconUrl="https://skillicons.dev/icons?i=firebase"
-                        />
+                            <SkillItem
+                                title="API Development"
+                                description="Designing and building scalable RESTful APIs."
+                                iconUrl="https://skillicons.dev/icons?i=graphql"
+                            />
+                        </div>
 
-                        <TechSkillItem
-                            title="DevOps & Deployment"
-                            description="Basic containerization and deployment using Docker, Git, and Linux.."
-                            iconUrl="https://skillicons.dev/icons?i=docker"
-                        />
+                        <div className="flex-1 space-y-6">
+                            <SkillItem
+                                title="Database & Analytics"
+                                description="Working with MongoDB, PostgreSQL, MySQL, SQL Server, and Redis."
+                                iconUrl="https://skillicons.dev/icons?i=mongodb"
+                            />
+
+                            <SkillItem
+                                title="Cloud Services"
+                                description="Using Firebase services such as Firestore and cloud storage."
+                                iconUrl="https://skillicons.dev/icons?i=firebase"
+                            />
+
+                            <SkillItem
+                                title="DevOps & Deployment"
+                                description="Basic containerization and deployment using Docker, Git, and Linux.."
+                                iconUrl="https://skillicons.dev/icons?i=docker"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
 
             {/* Project */}
-            {/* <div className="space-y-5">
+            <div id="Project" className="space-y-5">
                 <div>
-                    <h1 className="text-4xl font-semibold text-green-700">My Project</h1>
-                    <p className="text-gray-700">
-                        A collection of technologies and tools I use to build modern applications.
+                    <h1 className="text-3xl md:text-4xl font-semibold text-green-700">My Project</h1>
+                    <p className="text-gray-700 text-sm md:text-md">
+                        A collection of personal and team projects built during my learning journey.
                     </p>
                 </div>
-            </div> */}
+
+                <div className="grid grid-cols-12 gap-10">
+                    <div className="col-span-12 lg:col-span-3 xl:col-span-2">
+                        <GithubSection />
+                    </div>
+                    <div className="col-span-12 lg:col-span-9 xl:col-span-10">
+                        <ProjectSection />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

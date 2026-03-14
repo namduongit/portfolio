@@ -1,24 +1,47 @@
-import { useState } from "react"
-import HireButton from "../../ui/button/hire/hire-button";
+import { useEffect, useState } from "react"
+import HireButton from "../../ui/hire-button/hire-button";
 
-const ListActive = () => {
-    return (
-        <>
-            <li className="nav-header cursor-pointer hover:text-green-700">HOME</li>
-            <li className="nav-header cursor-pointer hover:text-green-700">ABOUT ME</li>
-            <li className="nav-header cursor-pointer hover:text-green-700">SKILL</li>
-            <li className="nav-header cursor-pointer hover:text-green-700">PROJECT</li>
-            <HireButton />
-        </>
-    )
-}
-
+type InViewElement = "Home" | "About" | "Skill" | "Project";
 
 const Header = () => {
+    const [inView, setInView] = useState<InViewElement>();
     const [isShowSidebar, setIsShowSibar] = useState<boolean>(false);
 
+    const ListActive = () => {
+        return (
+            <>
+                <li className="nav-header cursor-pointer hover:text-green-700" onClick={() => activeContent("Home")}>HOME</li>
+                <li className="nav-header cursor-pointer hover:text-green-700" onClick={() => activeContent("About")}>ABOUT ME</li>
+                <li className="nav-header cursor-pointer hover:text-green-700" onClick={() => activeContent("Skill")}>SKILL</li>
+                <li className="nav-header cursor-pointer hover:text-green-700" onClick={() => activeContent("Project")}>PROJECT</li>
+                <HireButton />
+            </>
+        )
+    }
+
+    const activeContent = (viewName: InViewElement) => {
+        setInView(viewName);
+        setIsShowSibar(false)
+    }
+
+    useEffect(() => {
+        if (!inView) return;
+        const element = document.getElementById(inView);
+        if (!element) return;
+
+        const elementRect = element.getBoundingClientRect();
+        const scrollLeft = elementRect.left + window.scrollX - (window.innerWidth / 2) + (elementRect.width / 2);
+        const scrollTop = elementRect.top + window.scrollY - (window.innerHeight / 2) + (elementRect.height / 2);
+
+        window.scrollTo({
+            left: scrollLeft,
+            top: scrollTop,
+            behavior: "smooth"
+        });
+    }, [inView]);
+
     return (
-        <header className="bg-white py-4 px-8 lg:px-5 xl:px-3 2xl:px-0">
+        <header className="sticky top-0 left-0 bg-white py-4 px-8 lg:px-5 xl:px-3 2xl:px-0 z-50">
             <div className="container mx-auto flex justify-between items-center">
                 <div className="text-2xl md:text-3xl font-semibold">
                     <span className="text-black">nam</span>
@@ -42,10 +65,10 @@ const Header = () => {
 
             {
                 isShowSidebar && (
-                    <div className="md:hidden absolute top-0 left-0 w-screen h-screen bg-gray-500/40 z-90"
+                    <div className="md:hidden absolute top-0 left-0 w-screen h-screen bg-gray-500/40"
                         onClick={() => setIsShowSibar(false)}
                     >
-                        <div className="sidebar absolute top-0 right-0 w-60 h-screen bg-white p-5 z-100"
+                        <div className="sidebar absolute top-0 right-0 w-60 h-screen bg-white p-5"
                             onClick={e => e.stopPropagation()}
                         >
                             <ul className="flex flex-col gap-5">

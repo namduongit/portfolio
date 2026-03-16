@@ -41,22 +41,22 @@ const Header = () => {
     }, [inView]);
 
     return (
-        <header className="sticky top-0 left-0 bg-white py-4 px-8 lg:px-5 xl:px-3 2xl:px-0 z-50">
-            <div className="container mx-auto flex justify-between items-center">
-                <div className="text-2xl md:text-3xl font-semibold">
-                    <span className="text-black">nam</span>
-                    <span className="text-blue-800">duong</span>
+        <header className="sticky top-0 left-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200">
+            <div className="container mx-auto flex justify-between items-center py-4 px-4 lg:px-6">
+                <div className="flex flex-col">
+                    <span className="text-xs uppercase tracking-[0.5em] text-gray-500">namduong.dev</span>
+                    <span className="text-2xl md:text-3xl font-semibold text-gray-900">Developer Portfolio</span>
                 </div>
                 <div>
-                    <ul className="hidden md:flex md:items-center gap-6 lg:gap-10 text-md lg:text-xl font-semibold">
+                    <ul className="hidden md:flex md:items-center gap-8 lg:gap-10 text-sm font-semibold text-gray-700">
                         <ListActive />
                     </ul>
 
                     <button className="md:hidden p-2 hover:bg-gray-100 rounded"
                         onClick={() => setIsShowSibar(true)}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
                         </svg>
                     </button>
 
@@ -65,13 +65,17 @@ const Header = () => {
 
             {
                 isShowSidebar && (
-                    <div className="md:hidden absolute top-0 left-0 w-screen h-screen bg-gray-500/40"
+                    <div className="md:hidden absolute top-0 left-0 w-screen h-screen bg-gray-900/50"
                         onClick={() => setIsShowSibar(false)}
                     >
-                        <div className="sidebar absolute top-0 right-0 w-60 h-screen bg-white p-5"
+                        <div className="sidebar absolute top-0 right-0 w-64 h-screen bg-white p-5"
                             onClick={e => e.stopPropagation()}
                         >
-                            <ul className="flex flex-col gap-5">
+                            <div className="flex justify-between items-center mb-5">
+                                <p className="text-lg font-semibold">Menu</p>
+                                <button onClick={() => setIsShowSibar(false)} className="p-2">✕</button>
+                            </div>
+                            <ul className="flex flex-col gap-5 text-gray-800">
                                 <ListActive />
                             </ul>
                         </div>

@@ -8,11 +8,11 @@ const GithubSection = () => {
 
     return (
         <div className="space-y-3">
-            <div className="relative max-w-40 lg:max-w-full">
+            <div className="relative max-w-40 lg:max-w-80">
                 <div className="rounded-full overflow-hidden ring-2 ring-gray-500">
                     <img src={avatar} alt="Github Section Avatar" className="w-full h-full" />
                 </div>
-                <div className={`absolute h-8 rounded-full bg-gray-900 ring-1 ring-gray-500 bottom-0 right-0 -translate-y-3/4 z-10
+                <div className={`absolute h-8 rounded-full bg-gray-900 ring-1 ring-gray-500 bottom-0 right-0 -translate-y-3/2 z-10
                     flex items-center justify-center cursor-pointer ${isClickIcon ? "translate-x-4 w-16 flex items-center gap-1 px-2" : "-translate-x-1/2 w-8"}`}
                     onClick={() => setIsClickIcon(!isClickIcon)}
                 >

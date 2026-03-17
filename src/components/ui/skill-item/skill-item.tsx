@@ -8,8 +8,8 @@ const SkillItem = (props: { title: string, description: string, iconUrl: string 
                 <img src={props.iconUrl} alt="Icon tech skill" />
             </div>
             <div>
-                <h1 className="font-semibold text-md lg:text-xl group-hover:text-green-700">{props.title}</h1>
-                <p className="text-sm lg:text-md">{props.description}</p>
+                <h1 className="font-semibold text-base lg:text-xl group-hover:text-green-700">{props.title}</h1>
+                <p className="text-sm lg:text-base">{props.description}</p>
             </div>
         </div>
     )

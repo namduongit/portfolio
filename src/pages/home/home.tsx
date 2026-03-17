@@ -87,14 +87,14 @@ const Home = () => {
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         {statTags.map((stat) => (
                             <div key={stat.label} className="rounded-2xl border border-gray-200 bg-white p-4">
-                                <p className="text-2xl font-semibold text-gray-900">{stat.value}</p>
+                                <p className="text-base xl:text-2xl font-semibold text-gray-900">{stat.value}</p>
                                 <p className="text-sm uppercase tracking-[0.2em] text-gray-500">{stat.label}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 space-y-4">
+                <div className="bg-white rounded-3xl shadow-md border border-gray-100 p-6 space-y-4">
                     <div className="relative h-72 rounded-2xl overflow-hidden">
                         <iframe
                             src="https://lottie.host/embed/98d20880-1b80-46ee-938d-bce130f2ead0/HcHZXBp6YQ.lottie"
@@ -120,73 +120,83 @@ const Home = () => {
                 </div>
 
                 <div className="grid gap-6 grid-cols-12">
-                    <div className="col-span-3 bg-white rounded-2xl shadow-lg p-6 space-y-5 border border-gray-100">
-                        <div className="relative overflow-hidden rounded-2xl">
+                    <div className="col-span-12 lg:col-span-4 xl:col-span-3 flex gap-8 lg:gap-0 lg:block bg-white rounded-2xl shadow-md p-6 space-y-5 border border-gray-100">
+                        <div className="relative overflow-hidden rounded-2xl w-50 lg:w-full">
                             <img src={avatar} alt="Nguyen Nam Duong avatar" className="w-full object-cover" />
                         </div>
-                        <div className="space-y-3">
-                            <p className="text-lg font-semibold text-gray-900">Nguyễn Nam Dương</p>
-                            <div className="flex flex-wrap gap-2">
-                                {hightLightTags.map((highlight) => (
-                                    <span key={highlight} className="px-3 py-1 rounded-full bg-green-50 text-green-800 text-xs font-semibold tracking-wide">
-                                        {highlight}
-                                    </span>
-                                ))}
+
+                        <div className="flex-1 space-y-5">
+                            <div className="space-y-3">
+                                <p className="text-lg font-semibold text-gray-900">Nguyễn Nam Dương</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {hightLightTags.map((highlight) => (
+                                        <span key={highlight} className="px-3 py-1 rounded-full bg-green-50 text-green-800 text-xs font-semibold tracking-wide">
+                                            {highlight}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                        <div className="space-y-2">
-                            <p className="text-xs uppercase tracking-[0.3em] text-gray-500">Focus right now</p>
-                            <ul className="space-y-2 text-sm text-gray-700">
-                                {focusAreas.map((item) => (
-                                    <li key={item} className="flex gap-2">
-                                        <span className="text-green-600">▹</span>
-                                        <span>{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className="space-y-2">
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">Focus right now</p>
+                                <ul className="space-y-2 text-sm text-gray-700">
+                                    {focusAreas.map((item) => (
+                                        <li key={item} className="flex gap-2">
+                                            <span className="text-green-600">▹</span>
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="col-span-9 flex flex-col gap-8">
-                        <div className="grid grid-cols-2 gap-10">
-                            {aboutContents.map((content) => (
-                                <div key={content.title} className="bg-white rounded-2xl shadow-lg p-5 space-y-2 border border-gray-100">
-                                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">{content.title}</p>
-                                    <h3 className="text-xl font-semibold text-gray-900">{content.description.name}</h3>
-                                    <p className="text-gray-700 text-sm">
-                                        {content.description.tags.map((tag, idx) => (
-                                            <span key={idx}>
-                                                {tag}
-                                                <br />
-                                            </span>
-                                        ))}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="bg-white rounded-2xl shadow-lg p-5 space-y-2 border border-gray-100 md:col-span-2">
-                            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">Contact</p>
-                            <div className="grid sm:grid-cols-2 gap-3">
-                                {contactLinks.map((link) => (
-                                    <a
-                                        key={link.label}
-                                        href={link.href}
-                                        target={link.label === "Email" || link.label === "Phone" ? "_self" : "_blank"}
-                                        rel="noreferrer"
-                                        className="flex items-center gap-3 rounded-2xl border border-gray-200 px-4 py-3 hover:border-green-600"
-                                    >
-                                        <i className={`${link.icon} text-green-700`}></i>
-                                        <div>
-                                            <p className="text-xs uppercase tracking-[0.3em] text-gray-500">{link.label}</p>
-                                            <p className="text-sm font-semibold text-gray-900">{link.value}</p>
+                    <div className="col-span-12 lg:col-span-8 xl:col-span-9 flex flex-col gap-5">
+                        <div className="flex-1 flex flex-col gap-5 lg:gap-10">
+                            <div className="gap-5 space-y-2">
+                                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 text-left">About Me</p>
+                                <div className="flex-col grid grid-cols-2 gap-5">
+                                    {aboutContents.map((content) => (
+                                        <div key={content.title} className="bg-white rounded-2xl shadow-md p-5 space-y-2 border border-gray-100">
+                                            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">{content.title}</p>
+                                            <h3 className="text-xl font-semibold text-gray-900">{content.description.name}</h3>
+                                            <p className="text-gray-700 text-sm">
+                                                {content.description.tags.map((tag, idx) => (
+                                                    <span key={idx}>
+                                                        {tag}
+                                                        <br />
+                                                    </span>
+                                                ))}
+                                            </p>
                                         </div>
-                                    </a>
-                                ))}
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="flex-1 bg-white rounded-2xl space-y-2">
+                                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 text-right lg:text-left">Contact</p>
+                                <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-3">
+                                    {contactLinks.map((link) => (
+                                        <a
+                                            key={link.label}
+                                            href={link.href}
+                                            target={link.label === "Email" || link.label === "Phone" ? "_self" : "_blank"}
+                                            rel="noreferrer"
+                                            className="flex items-center gap-3 rounded-2xl border border-gray-200 px-4 py-3 hover:border-green-600"
+                                        >
+                                            <i className={`${link.icon} text-green-700`}></i>
+                                            <div>
+                                                <p className="text-xs uppercase tracking-[0.2em] text-gray-500">{link.label}</p>
+                                                <p className="text-sm font-semibold text-gray-900">{link.value}</p>
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
-                        <Coding />
+                        <div className="flex-1 bg-gray-900 rounded-2xl">
+                            <Coding />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -197,8 +207,8 @@ const Home = () => {
                     <p className="text-xs font-semibold tracking-[0.3em] text-gray-500 uppercase">Stack & habits</p>
                     <h1 className="text-3xl md:text-4xl font-semibold text-gray-900">Tech I use everyday to ship backend-first apps.</h1>
                     <p className="text-gray-700 text-sm md:text-base">
-                        Ghi lại các ngôn ngữ, framework và quy trình mình đang luyện tập. Tất cả phục vụ cho mục tiêu trở thành
-                        backend/full-stack developer với tư duy sản phẩm rõ ràng.
+                        Languages, frameworks, and tools I use daily to build backend-first applications,
+                        all focused on becoming a backend/full-stack developer with a clear product mindset.
                     </p>
                 </div>
 
@@ -212,7 +222,7 @@ const Home = () => {
 
                 <div className="grid lg:grid-cols-3 gap-6">
                     {skillCategories.map((group) => (
-                        <div key={group.title} className="bg-white rounded-2xl shadow-lg p-5 space-y-4 border border-gray-100">
+                        <div key={group.title} className="bg-white rounded-2xl shadow-md p-5 space-y-4 border border-gray-100">
                             <div>
                                 <h2 className="text-xl font-semibold text-gray-900">{group.title}</h2>
                                 <p className="text-sm text-gray-600">{group.description}</p>
@@ -253,12 +263,12 @@ const Home = () => {
 
                 <div className="grid grid-cols-12 gap-6">
                     <div className="col-span-12 xl:col-span-3 space-y-6">
-                        <div className="bg-white rounded-2xl shadow-lg p-4">
+                        <div className="bg-white rounded-2xl shadow-md p-4">
                             <GithubSection />
                         </div>
 
-                        <div className="rounded-2xl border border-gray-200 bg-white p-5 space-y-5">
-                            <div>
+                        <div className="rounded-2xl border border-gray-200 bg-white p-5 space-y-3">
+                            <div className="space-y-2">
                                 <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">Build focus 2024 - 2025</p>
                                 <h3 className="text-xl font-semibold text-gray-900">What I'm improving right now</h3>
                             </div>
@@ -274,7 +284,7 @@ const Home = () => {
                                 {projectStats.map((stat) => (
                                     <div key={stat.label} className="rounded-xl bg-gray-50 border border-gray-200 p-3">
                                         <p className="text-lg font-semibold text-gray-900">{stat.value}</p>
-                                        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-gray-500">{stat.label}</p>
+                                        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-gray-500">{stat.label}</p>
                                     </div>
                                 ))}
                             </div>
@@ -282,7 +292,7 @@ const Home = () => {
                     </div>
 
                     <div className="col-span-12 xl:col-span-9">
-                        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-lg">
+                        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-md">
                             <ProjectSection />
                         </div>
                     </div>

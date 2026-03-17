@@ -44,11 +44,11 @@ const Header = () => {
         <header className="sticky top-0 left-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200">
             <div className="container mx-auto flex justify-between items-center py-4 px-4 lg:px-6">
                 <div className="flex flex-col">
-                    <span className="text-xs font-semibold uppercase tracking-[0.4em] text-gray-500">namduong.dev</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">namduong.dev</span>
                     <span className="text-2xl md:text-3xl font-semibold text-gray-900">Developer Portfolio</span>
                 </div>
                 <div>
-                    <ul className="hidden md:flex md:items-center gap-8 lg:gap-10 text-md font-semibold text-gray-700">
+                    <ul className="hidden md:flex md:items-center gap-8 lg:gap-10 text-base font-semibold text-gray-700">
                         <ListActive />
                     </ul>
 

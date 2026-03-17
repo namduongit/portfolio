@@ -1,7 +1,7 @@
 export const skillCategories = [
     {
         title: "Languages",
-        description: "Những ngôn ngữ mình dùng hằng ngày cho đồ án và dự án cá nhân.",
+        description: "The languages I use daily for course projects and personal projects.",
         skills: [
             { title: "TypeScript / JavaScript", description: "Writing backend + frontend codebase.", icon: "https://skillicons.dev/icons?i=ts" },
             { title: "GoLang", description: "Building concurrent services & CLI.", icon: "https://skillicons.dev/icons?i=go" },
@@ -11,22 +11,22 @@ export const skillCategories = [
     },
     {
         title: "Frameworks",
-        description: "Những công nghệ mình học sâu để triển khai bài tập lớn.",
+        description: "Technologies I dive deep into for course projects and personal projects.",
         skills: [
-            { title: "React", description: "UI components và dashboard nội bộ.", icon: "https://skillicons.dev/icons?i=react" },
-            { title: "Express", description: "REST API và authentication.", icon: "https://skillicons.dev/icons?i=nodejs" },
-            { title: "NestJS", description: "Modular backend hướng domain.", icon: "https://skillicons.dev/icons?i=nestjs" },
-            { title: "Spring Boot", description: "Course projects và microservices cơ bản.", icon: "https://skillicons.dev/icons?i=spring" },
-            { title: "Tailwind CSS", description: "Ship UI nhanh cho prototype.", icon: "https://skillicons.dev/icons?i=tailwind" }
+            { title: "React", description: "UI components and dashboard.", icon: "https://skillicons.dev/icons?i=react" },
+            { title: "Express", description: "REST API and authentication.", icon: "https://skillicons.dev/icons?i=nodejs" },
+            { title: "NestJS", description: "Modular backend about domain.", icon: "https://skillicons.dev/icons?i=nestjs" },
+            { title: "Spring Boot", description: "Course projects and microservices basic.", icon: "https://skillicons.dev/icons?i=spring" },
+            { title: "Tailwind CSS", description: "Fast ship UI for prototype.", icon: "https://skillicons.dev/icons?i=tailwind" }
         ]
     },
     {
         title: "Workflow",
-        description: "Cách mình triển khai và quản lý môi trường dev.",
+        description: "How I set up and manage dev environment.",
         skills: [
-            { title: "Docker", description: "Container hoá dịch vụ backend.", icon: "https://skillicons.dev/icons?i=docker" },
-            { title: "Linux", description: "Triển khai trên VPS cá nhân.", icon: "https://skillicons.dev/icons?i=linux" },
-            { title: "API Structure", description: "Thiết kế RESTful rõ ràng, versioning.", icon: "https://skillicons.dev/icons?i=postman" }
+            { title: "Docker", description: "Containerisation backend services.", icon: "https://skillicons.dev/icons?i=docker" },
+            { title: "Linux", description: "Deployment into personal VPS.", icon: "https://skillicons.dev/icons?i=linux" },
+            { title: "API Structure", description: "Design RESTful consistent, versioning.", icon: "https://skillicons.dev/icons?i=postman" }
         ]
     }
 ];

@@ -8,7 +8,7 @@ const GithubSection = () => {
 
     return (
         <div className="space-y-3">
-            <div className="relative max-w-40 lg:max-w-80">
+            <div className="relative max-w-40">
                 <div className="rounded-full overflow-hidden ring-2 ring-gray-500">
                     <img src={avatar} alt="Github Section Avatar" className="w-full h-full" />
                 </div>

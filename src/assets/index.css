@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap');
 @import "tailwindcss";
 
 * {
     font-family: "Signika", Arial, Helvetica, sans-serif;
     box-sizing: border-box;
+}
+
+.jetbrains-mono,
+.jetbrains-mono * {
+    font-family: "JetBrains Mono", monospace;
 }
 
 input:focus {

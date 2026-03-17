@@ -14,7 +14,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="mt-20 border-t border-gray-200 bg-gray-50">
+        <footer className="border-t border-gray-200 bg-gray-50">
             <div className="container mx-auto px-6 py-8 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
                 <div className="space-y-3">
                     <p className="text-xs uppercase tracking-[0.4em] text-gray-500">Nguyen Nam Duong</p>

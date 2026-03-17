@@ -6,7 +6,7 @@ const Layout = () => {
     return (
         <>
             <Header />
-            <main>
+            <main className="py-10">
                 <Outlet />
             </main>
             <Footer />

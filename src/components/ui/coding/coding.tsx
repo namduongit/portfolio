@@ -1,6 +1,6 @@
 const Coding = () => {
     return (
-        <div className="flex-1 flex text-sm lg:text-base p-4 text-gray-200 tracking-[0.008em] jetbrains-mono">
+        <div className="w-150 md:w-full flex text-sm lg:text-base p-4 text-gray-200 tracking-[0.008em] jetbrains-mono">
             <div className="flex-1">
                 <p className="space-x-1">
                     <span>package</span>

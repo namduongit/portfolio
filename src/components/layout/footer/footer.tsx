@@ -15,7 +15,7 @@ const Footer = () => {
 
     return (
         <footer className="border-t border-gray-200 bg-gray-50">
-            <div className="container mx-auto px-6 py-8 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+            <div className="container mx-auto px-6 py-8 grid gap-8 grid-cols-1 lg:grid-cols-2">
                 <div className="space-y-3">
                     <p className="text-xs font-semibold uppercase tracking-[0.4em] text-gray-500">Nguyen Nam Duong</p>
                     <h2 className="text-2xl font-semibold text-gray-900">Backend-focused student engineer · Saigon University</h2>

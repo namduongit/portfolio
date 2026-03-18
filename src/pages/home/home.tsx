@@ -120,8 +120,10 @@ const Home = () => {
                 </div>
 
                 <div className="grid gap-6 grid-cols-12">
-                    <div className="col-span-12 lg:col-span-4 xl:col-span-3 flex gap-8 lg:gap-0 lg:block bg-white rounded-2xl shadow-md p-6 space-y-5 border border-gray-100">
-                        <div className="relative overflow-hidden rounded-2xl w-50 lg:w-full">
+                    <div className="col-span-12 lg:col-span-4 xl:col-span-3 
+                        flex flex-col gap-8 lg:gap-0 bg-white rounded-2xl shadow-md p-6 space-y-5 
+                        border border-gray-100 h-fit lg:h-full">
+                        <div className="relative overflow-hidden rounded-2xl flex-1">
                             <img src={avatar} alt="Nguyen Nam Duong avatar" className="w-full object-cover" />
                         </div>
 
@@ -151,10 +153,10 @@ const Home = () => {
                     </div>
 
                     <div className="col-span-12 lg:col-span-8 xl:col-span-9 flex flex-col gap-5">
-                        <div className="flex-1 flex flex-col gap-5 lg:gap-10">
+                        <div className="flex-1 flex flex-col gap-8 lg:gap-10">
                             <div className="gap-5 space-y-2">
                                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 text-left">About Me</p>
-                                <div className="flex-col grid grid-cols-2 gap-5">
+                                <div className="flex-col grid grid-cols-1 lg:grid-cols-2 gap-5">
                                     {aboutContents.map((content) => (
                                         <div key={content.title} className="bg-white rounded-2xl shadow-md p-5 space-y-2 border border-gray-100">
                                             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">{content.title}</p>
@@ -194,7 +196,7 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <div className="flex-1 bg-gray-900 rounded-2xl">
+                        <div className="flex-1 bg-gray-900 rounded-2xl overflow-x-auto">
                             <Coding />
                         </div>
                     </div>
